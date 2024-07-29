@@ -1,9 +1,11 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
 keymap.set("i", "jk", "<ESC>", { desc = "Keluar dari insert mode" })
-keymap.set("i", "dd", "<C-w>", { desc = "Delete word by double d" })
+keymap.set("i", "dw", "<C-w>", { desc = "Delete word by double d" })
+keymap.set("i", "<C-s>", "<ESC>:w<CR>", { desc = "Save and go to normal mode" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlight" })
 
 -- increment/decrement numbers
@@ -21,3 +23,9 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) -- go to text tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to prev tab" }) -- go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+
+keymap.set("n", "te", "tabedit", opts)
+keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+-- select all
+keymap.set("n", "<C-a>", "gg<S-v>G")

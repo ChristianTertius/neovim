@@ -15,10 +15,10 @@ return {
 			persist_size = true,
 			direction = "horizontal",
 			close_on_exit = true,
-			shell = vim.o.shell,
+			shell = "powershell.exe",
 			float_opts = {
 				border = "curved",
-				winblend = 3,
+				winblend = 20,
 			},
 			winbar = {
 				enabled = false,
